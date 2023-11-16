@@ -6,12 +6,12 @@ const Home = {
     return `
       <div class="jumbotron">
       <picture>
-        <source class="lazyload" media="(min-width:768px)" srcset="./images/hero-image_2-large.jpg" type="image/webp">
-        <source class="lazyload" media="(min-width:768px)" srcset="./images/hero-image_2-large.jpg" type="image/jpg">
+        <source media="(min-width:768px)" srcset="./images/hero-image_2-large.jpg" type="image/webp">
+        <source media="(min-width:768px)" srcset="./images/hero-image_2-large.jpg" type="image/jpg">
         
-        <source class="lazyload" media="(max-width:768px)" srcset="./images/hero-image_2-small.jpg" type="image/webp">
-        <source class="lazyload" media="(max-width:768px)" srcset="./images/hero-image_2-small.jpg" type="image/jpg">
-        <img class="lazyload" data-src="./images/hero-image_2.jpg" alt="jumbotron Restaurant" >
+        <source media="(max-width:768px)" srcset="./images/hero-image_2-small.jpg" type="image/webp">
+        <source media="(max-width:768px)" srcset="./images/hero-image_2-small.jpg" type="image/jpg">
+        <img class="lazyload" data-src="./images/hero-image_2.jpg" alt="jumbotron Restaurant">
       </picture>
       <h2>
         Exploring Flavors, <br>

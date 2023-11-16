@@ -4,13 +4,33 @@ Before(({ I }) => {
   I.amOnPage('/#/favorite');
 });
 
-Scenario('liking one restaurant', async ({ I }) => {
-  I.see('Tidak ada restaurant untuk ditampilkan', '.restaurant-item__not__found');
+const likingRestaurant = async (I) => {
   I.amOnPage('/');
 
-  I.seeElement('.restaurant__title a');
-  I.click(locate('.restaurant__title a').first());
+  I.seeElement('.restaurant-item__footer a');
+  I.wait(2);
+  I.click(locate('.restaurant-item__footer a').first());
 
   I.seeElement('#likeButton');
   I.click('#likeButton');
+
+  I.amOnPage('/#/favorite');
+  I.seeElement('.restaurant-item');
+};
+Scenario('liking one restaurant', async ({ I }) => {
+  I.wait(2);
+  await likingRestaurant(I);
+});
+
+Scenario('Unliking one restaurant', async ({ I }) => {
+  I.wait(2);
+  await likingRestaurant(I);
+
+  I.amOnPage('/#/favorite');
+  I.seeElement('.restaurant-item');
+  I.click(locate('.restaurant-item__footer a').first());
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+  I.amOnPage('/#/favorite');
+  I.see('Your Favorited Restaurant', '.content__heading');
 });
